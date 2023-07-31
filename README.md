@@ -72,6 +72,12 @@ tzdata==2023.3
 urllib3==2.0.4
 ```
 
+Also, you need the environment variables so create an .env file with the following data:
+
+````
+SECRET_KEY=d8684dcac02825e53747806c0a77ed8bfef8b5a2
+````
+
 Make these settings so that your Django application works perfectly.
 
 ## Run Tests with coverage
