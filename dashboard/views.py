@@ -12,10 +12,13 @@ def update_user_view(request, user_uuid):
     user = CustomUser.objects.get(uuid=user_uuid)
     user.username = request.POST.get('username')
     user.email = request.POST.get('email')
-    user.set_password(request.POST.get('password'))
-    user.save()
+    if request.POST.get('password') != '*******':
+        user.set_password(request.POST.get('password'))
+        user.save()
+        return redirect('login')
 
-    return redirect('login')
+    user.save()
+    return redirect('home')
 
 @login_required(login_url='login')
 def delete_user_view(request, user_uuid):

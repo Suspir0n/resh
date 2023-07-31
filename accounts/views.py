@@ -43,10 +43,6 @@ def signup_view(request):
         form = SignupForms(request.POST)
 
         if form.is_valid():
-            if form['password'].value() != form['confirm_password'].value():
-                messages.error(request, 'Passwords are not the same!')
-                return redirect('signup')
-
             name = form['username_signup'].value()
             email = form['email'].value()
             password = form['password'].value()

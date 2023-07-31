@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden-y;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+video {
+    object-fit: contain;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}

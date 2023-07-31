@@ -24,7 +24,7 @@ class TestDashboardView(TestCase):
         self.assertEqual(response.context['user'], self.user)
         self.assertTemplateUsed(response, 'dashboard/home.html')
 
-    def test_home_UPDATE_custom_user_updation(self):
+    def test_home_UPDATE_custom_user_updation_data(self):
 
         new_username = 'resh defense'
         new_email = 'reshdefense@example.com'
@@ -44,6 +44,26 @@ class TestDashboardView(TestCase):
         self.assertEqual(self.user.username, new_username)
         self.assertEqual(self.user.email, new_email)
         self.assertTrue(self.user.check_password(new_password))
+
+    def test_home_UPDATE_custom_user_updation_without_password(self):
+        new_username = 'resh defense'
+        new_email = 'reshdefense@example.com'
+        new_password = '*******'
+
+        data = {
+            'username': new_username,
+            'email': new_email,
+            'password': new_password,
+        }
+        response = self.client.post(self.update_url, data)
+
+        self.assertRedirects(response, reverse('home'))
+
+        self.user.refresh_from_db()
+
+        self.assertEqual(self.user.username, new_username)
+        self.assertEqual(self.user.email, new_email)
+        self.assertFalse(self.user.check_password(new_password))
 
     def test_home_DELETE_custom_user_deletion(self):
         response = self.client.delete(self.delete_url)

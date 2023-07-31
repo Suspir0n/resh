@@ -1,3 +1,11 @@
 [run]
 source = .
-omit = */migrations/*
+omit =
+    */migrations/*
+    manage.py
+    tests/*
+    setup/asgi.py
+    setup/wsgi.py
+
+[report]
+fail_under=90

@@ -1,46 +1,53 @@
-#  Desafio Técnico - Resh
+# Technical Challenge - Resh
 
-## Descrição
+## Description
 
-Resh Cyber Defense me deu um desafio técnico para uma vaga que estou participando, 
-e esse desafio consiste em criar uma aplicação simples usando Django.
+Resh Cyber Defense gave me a technical challenge for a vacancy I'm participating in,
+and that challenge is to create a simple application using Django.
 
-## Requisitos do desafio
+## Challenge requirements
 
- - Criar uma conta
- - Conecte-se
- - Sair
- - Alterar e-mail ou senha
- - Deletar conta
+  - Create an account
+  - Log in
+  - To go out
+  - Change email or password
+  - Delete account
 
-## Começando
+## Demostration
 
-Para executar o projeto, você precisa instalar os seguintes programas:
+
+<img width="500" src="./static/assets/tela-login.png">
+<img width="500" src="./static/assets/tela-cadastro.png">
+<img width="500" src="./static/assets/home.png">
+
+## Starting
+
+To run the project, you need to install the following programs:
 
 - [Python: Obrigatorio para criar o projeto](https://www.python.org/downloads/)
 - [VS Code: Obrigatorio para desenvolver o projeto](https://code.visualstudio.com/)
 
-## ⌨️ Desenvolvendo
+## ⌨️ Developing
 
-Use o Gitpod, um ambiente de desenvolvimento online gratuito para o GitHub.
+Use Gitpod, a free online development environment for GitHub.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Suspir0n/resh.git)
 
-Ou use o código localmente usando:
+Or use the code locally using:
 ```
-$ cd "diretorio da sua escolha"
+$ cd "directory of your choice"
 $ git clone https://github.com/Suspir0n/resh.git
 ```
 
-### Construindo
+### Building
 
-Para construir uma aplicação Django, execute os comandos abaixos:
+To build a Django application, run the commands below:
 
 ```
 $ pip install -r requirements.txt
 ```
 
-Estes são as dependências dentro do requirements.txt:
+These are the dependencies within requirements.txt:
 
 ```
 asgiref==3.7.2
@@ -50,15 +57,39 @@ sqlparse==0.4.4
 tzdata==2023.3
 ```
 
-Faça essas configurações para que seu aplicativo Django funcione perfeitamente
+Make these settings so that your Django application works perfectly.
 
 ## Run Tests with coverage
 
-```` 
-pytest -v --cov --cov-report=term-missing --cov-fail-under=90
 ````
+coverage report
+```` 
 
-## Features
+````
+Name                    Stmts   Miss  Cover
+-------------------------------------------
+accounts\__init__.py        0      0   100%
+accounts\admin.py           6      0   100%
+accounts\apps.py            4      0   100%
+accounts\backends.py       14      0   100%
+accounts\forms.py          17      0   100%
+accounts\models.py         31      0   100%
+accounts\tests.py           1      0   100%
+accounts\urls.py            3      0   100%
+accounts\views.py          42      1    98%
+dashboard\__init__.py       0      0   100%
+dashboard\admin.py          1      0   100%
+dashboard\apps.py           4      0   100%
+dashboard\models.py         1      0   100%
+dashboard\tests.py          1      0   100%
+dashboard\urls.py           3      0   100%
+dashboard\views.py         23      0   100%
+setup\__init__.py           0      0   100%
+setup\settings.py          26      0   100%
+setup\urls.py               3      0   100%
+-------------------------------------------
+TOTAL                     180      1    99%
+````
 
 ## Configuration
 
