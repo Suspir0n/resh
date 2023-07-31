@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-data">
+  <div class="row">
+    <div class="col col-lg-8">
+      <div class="card card-details">
+        <div class="card-body">
+          <div class="text-information">
+            <h4>Registration data</h4>
+            <p>User registration information.</p>
+          </div>
+          {% if user %}
+          <form class="row g-3 form-update-user" data-title="{{ user.uuid }}">
+            {% csrf_token %}
+            <div class="col col-lg-10">
+              <label for="upUsername" class="form-label">Username</label>
+              <input type="text" value="{{ user.username }}" class="form-control" id="upUsername" >
+            </div>
+            <div class="col col-lg-10">
+              <label for="upEmail" class="form-label">Email</label>
+              <input type="email" value="{{ user.email }}" class="form-control" id="upEmail" >
+            </div>
+            <div class="col col-lg-10">
+              <label for="upPassword" class="form-label">Password</label>
+              <input type="password" value="{{ user.password }}" class="form-control" id="upPassword" >
+            </div>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-grid gap-2 d-md-block btn-detail">
+  <a href="{% url 'delete' user.uuid  %}" class="btn btn-outline-danger btn-remove">Delete</a>
+  <button class="btn btn-primary btn-save" id="btnUpdateUser" type="submit">Save</button>
+  <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-remove">Exit</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.container-data {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100%;
+}
+
+.btn-detail {
+    margin-top: 5rem;
+    margin-left: 80%;
+}

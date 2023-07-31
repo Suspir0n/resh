@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row container-login">
+  <div class="col container-video">
+    <video class="sidebar-video" playsinline autoplay muted loop src="{% static 'assets/video-animated(1080p).mp4' %}"></video>
+  </div>
+  <div class="col col-lg-4 container-form">
+    <label class="title">Sign in to Resh</label>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      {% for field in form.visible_fields %}
+        <div class="mb-3 input">
+          <strong><label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label></strong>
+          {{ field }}
+        </div>
+      {% endfor %}
+      <div class="d-grid gap-2 col">
+        <button type="submit" class="btn btn-dark">Sign In</button>
+      </div>
+    </form>
+    <p class="link-text" style="text-align: center;">Don't have an account?<a href="{% url 'signup' %}" class="link-dark"> Sign up</a></p>
+  </div>
+  <div class="col col-lg-5"></div>
+</div>
+{% endblock %}
